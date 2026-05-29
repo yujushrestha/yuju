@@ -3,7 +3,7 @@ import "./globals.css"
 import Nav from "@/components/layout/Nav"
 
 export const metadata: Metadata = {
-  title: "yuji shrestha",
+  title: "yuju shrestha",
   description: "seeking something missing. missing something left behind.",
 }
 

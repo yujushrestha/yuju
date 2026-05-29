@@ -30,7 +30,7 @@ export default function Nav() {
           textTransform: "uppercase",
         }}
       >
-        yuji shrestha
+        yuju shrestha
       </span>
 
       <span
