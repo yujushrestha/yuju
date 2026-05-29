@@ -1,26 +1,56 @@
-@import "tailwindcss";
+@import "@fontsource-variable/cormorant";
+@import "@fontsource-variable/inter";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --shade-self: #0d0f0c;
+  --near-black: #1a1a18;
+  --bruised-gold: #c8a96e;
+  --shade-green: #3d4a35;
+  --still-lake: #7a8fa0;
+  --journal-page: #e8e0d0;
+  --bleeder-red: #b5432a;
+  --terminal-green: #00c853;
+
+  --font-awe: "Cormorant Variable", Georgia, serif;
+  --font-body: "Inter Variable", system-ui, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: var(--shade-self);
+  color: var(--journal-page);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--bruised-gold);
+  color: var(--shade-self);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--shade-self);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--near-black);
 }
