@@ -3,6 +3,7 @@ import "./globals.css"
 import { ViewTransitions } from "next-view-transitions"
 import Nav from "@/components/layout/Nav"
 import Cursor from "@/components/ui/Cursor"
+import EasterEgg from "@/components/ui/EasterEgg"
 
 export const metadata: Metadata = {
   title: "yuju shrestha",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <Cursor />
+          <EasterEgg />
           <Nav />
           {children}
         </body>
