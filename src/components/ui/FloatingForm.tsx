@@ -51,6 +51,7 @@ export default function FloatingForm() {
         height: "420px",
         pointerEvents: "none",
         opacity: 1,
+         display: "none",
       }}
     >
       <Canvas

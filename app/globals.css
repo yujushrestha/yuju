@@ -102,3 +102,9 @@ body {
     transform: translateY(0);
   }
 }
+
+@media (min-width: 768px) {
+  .floating-form {
+    display: block !important;
+  }
+}
