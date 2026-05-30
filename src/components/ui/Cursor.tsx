@@ -7,8 +7,14 @@ export default function Cursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
+
+    const isTouchDevice = "ontouchstart" in window
+    if (isTouchDevice) return
+
     const move = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY })
       if (!isVisible) setIsVisible(true)
@@ -34,11 +40,10 @@ export default function Cursor() {
     }
   }, [isVisible])
 
-  if (typeof window === "undefined") return null
+  if (!isMounted) return null
 
   return (
     <>
-      {/* dot */}
       <motion.div
         animate={{
           x: position.x - 4,
@@ -61,8 +66,6 @@ export default function Cursor() {
           mixBlendMode: "difference",
         }}
       />
-
-      {/* ring */}
       <motion.div
         animate={{
           x: position.x - 20,

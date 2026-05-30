@@ -23,11 +23,11 @@ export default function Hero() {
           position: "absolute",
           top: "20%",
           left: "10%",
-          width: "60vw",
-          height: "60vw",
+          width: "40vw",
+          height: "40vw",
           borderRadius: "50%",
           background: "var(--bruised-gold)",
-          filter: "blur(120px)",
+          filter: "blur(80px)",
           pointerEvents: "none",
         }}
       />

@@ -55,6 +55,8 @@ body {
   background: var(--near-black);
 }
 
-* {
-  cursor: none;
+@media (hover: none) {
+  * {
+    cursor: auto;
+  }
 }

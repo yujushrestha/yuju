@@ -106,7 +106,7 @@ export default function Contact() {
           {
             label: "linkedin",
             value: "Yuju Shrestha",
-            href: "#",
+            href: "https://www.linkedin.com/in/yuju-shrestha",
           },
         ].map((link, i) => (
           <motion.a
