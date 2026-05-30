@@ -4,6 +4,7 @@ import { ViewTransitions } from "next-view-transitions"
 import Nav from "@/components/layout/Nav"
 import Cursor from "@/components/ui/Cursor"
 import EasterEgg from "@/components/ui/EasterEgg"
+import MusicPlayer from "@/components/ui/MusicPlayer"
 
 export const metadata: Metadata = {
   title: "yuju shrestha",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <body>
           <Cursor />
           <EasterEgg />
+          <MusicPlayer />
           <Nav />
           {children}
         </body>
