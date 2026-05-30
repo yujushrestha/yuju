@@ -10,6 +10,7 @@ import { motion } from "framer-motion"
 export default function Hero() {
   return (
     <section
+    id="hero"
       style={{
         minHeight: "100vh",
         display: "flex",

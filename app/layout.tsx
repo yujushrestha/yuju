@@ -7,6 +7,7 @@ import EasterEgg from "@/components/ui/EasterEgg"
 import MusicPlayer from "@/components/ui/MusicPlayer"
 import ScrollProgress from "@/components/ui/ScrollProgress"
 import Loader from "@/components/ui/Loader"
+import KeyboardNav from "@/components/ui/KeyboardNav"
 
 export const metadata: Metadata = {
   title: "yuju shrestha",
@@ -64,6 +65,7 @@ export default function RootLayout({
           <Cursor />
           <EasterEgg />
           <ScrollProgress />
+          <KeyboardNav />
           <MusicPlayer />
           <Nav />
           {children}
