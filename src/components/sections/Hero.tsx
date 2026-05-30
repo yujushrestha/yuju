@@ -10,7 +10,7 @@ export default function Hero() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: "0 2rem",
+        padding: "0 1.5rem",
         position: "relative",
         overflow: "hidden",
       }}
@@ -33,7 +33,7 @@ export default function Hero() {
       />
 
       {/* main content */}
-      <div style={{ position: "relative", zIndex: 1, maxWidth: "900px" }}>
+      <div style={{ position: "relative", zIndex: 1, maxWidth: "900px", paddingTop: "6rem" }}>
 
         {/* overline */}
         <motion.p
@@ -53,7 +53,7 @@ export default function Hero() {
           developer / creative
         </motion.p>
 
-        {/* name — the awe voice */}
+        {/* name */}
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export default function Hero() {
           </span>
         </motion.h1>
 
-        {/* the line — intimate voice */}
+        {/* the line */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -96,16 +96,12 @@ export default function Hero() {
           missing something left behind.
         </motion.p>
 
-        {/* coordinates — oriented voice */}
+        {/* nav links */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.1 }}
-          style={{
-            display: "flex",
-            gap: "2rem",
-            flexWrap: "wrap",
-          }}
+          style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}
         >
           {["work", "about", "contact"].map((item, i) => (
             <motion.a
@@ -143,7 +139,7 @@ export default function Hero() {
         style={{
           position: "absolute",
           bottom: "2rem",
-          left: "2rem",
+          left: "1.5rem",
           display: "flex",
           alignItems: "center",
           gap: "0.75rem",

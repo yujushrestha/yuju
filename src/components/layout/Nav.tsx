@@ -40,6 +40,7 @@ export default function Nav() {
           color: "var(--still-lake)",
           opacity: 0.5,
           letterSpacing: "0.08em",
+          
         }}
       >
         v0.1

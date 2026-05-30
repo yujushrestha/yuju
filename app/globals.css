@@ -20,10 +20,17 @@
   --font-mono: "SF Mono", "Fira Code", monospace;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none !important;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
 }
 
 html {
@@ -31,6 +38,11 @@ html {
   color: var(--journal-page);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+  cursor: none;
+}
+
+a, button {
+  cursor: none;
 }
 
 body {
@@ -56,7 +68,7 @@ body {
 }
 
 @media (hover: none) {
-  * {
+  html, a, button, * {
     cursor: auto;
   }
 }
