@@ -21,7 +21,8 @@ export default function Nav() {
         alignItems: "center",
       }}
     >
-      <span
+      <Link
+        href="/"
         style={{
           fontFamily: "var(--font-mono)",
           fontSize: "11px",
@@ -29,23 +30,33 @@ export default function Nav() {
           opacity: 0.7,
           letterSpacing: "0.12em",
           textTransform: "uppercase",
+          textDecoration: "none",
         }}
       >
         yuju shrestha
-      </span>
+      </Link>
 
-      <span
+      <Link
+        href="/journal"
         style={{
           fontFamily: "var(--font-mono)",
           fontSize: "10px",
           color: "var(--still-lake)",
           opacity: 0.5,
           letterSpacing: "0.08em",
-          
+          textTransform: "uppercase",
+          textDecoration: "none",
+          transition: "opacity 0.3s ease",
         }}
+        onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) =>
+          (e.currentTarget.style.opacity = "0.9")
+        }
+        onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) =>
+          (e.currentTarget.style.opacity = "0.5")
+        }
       >
-        v0.1
-      </span>
+        journal
+      </Link>
     </motion.nav>
   )
 }
