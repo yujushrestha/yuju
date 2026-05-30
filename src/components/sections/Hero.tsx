@@ -1,4 +1,9 @@
 "use client"
+import dynamic from "next/dynamic"
+
+const FloatingForm = dynamic(() => import("@/components/ui/FloatingForm"), {
+  ssr: false,
+})
 
 import { motion } from "framer-motion"
 
@@ -31,6 +36,9 @@ export default function Hero() {
           pointerEvents: "none",
         }}
       />
+
+      {/* 3D form */}
+      <FloatingForm />
 
       {/* main content */}
       <div style={{ position: "relative", zIndex: 1, maxWidth: "900px", paddingTop: "6rem" }}>
