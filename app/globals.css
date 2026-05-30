@@ -72,3 +72,33 @@ body {
     cursor: auto;
   }
 }
+
+::view-transition-old(root) {
+  animation: 0.6s ease-in both fade-and-fall;
+}
+
+::view-transition-new(root) {
+  animation: 0.7s ease-out both rise-and-settle;
+}
+
+@keyframes fade-and-fall {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes rise-and-settle {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

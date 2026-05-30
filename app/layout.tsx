@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
+import { ViewTransitions } from "next-view-transitions"
 import Nav from "@/components/layout/Nav"
 import Cursor from "@/components/ui/Cursor"
 
@@ -14,12 +15,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Cursor />
-        <Nav />
-        {children}
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body>
+          <Cursor />
+          <Nav />
+          {children}
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }
