@@ -24,6 +24,7 @@ export default function Nav() {
       <Link
         href="/"
         style={{
+          background: "linear-gradient(to bottom, var(--shade-self) 60%, transparent)",
           fontFamily: "var(--font-mono)",
           fontSize: "11px",
           color: "var(--terminal-green)",

@@ -17,7 +17,7 @@ export default function Journal() {
           marginBottom: "4rem",
         }}
       >
-        04 / journal
+        journal
       </p>
 
       <h1

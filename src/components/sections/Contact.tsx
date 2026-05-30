@@ -35,7 +35,7 @@ export default function Contact() {
           marginBottom: "4rem",
         }}
       >
-        03 / contact
+        contact
       </motion.p>
 
       {/* heading */}

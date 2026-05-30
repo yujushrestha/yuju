@@ -42,7 +42,7 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
           marginBottom: "4rem",
         }}
       >
-        01 / work
+        work
       </motion.p>
 
       {/* heading */}

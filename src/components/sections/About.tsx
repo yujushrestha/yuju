@@ -36,7 +36,7 @@ export default function About() {
           marginBottom: "4rem",
         }}
       >
-        02 / about
+        about
       </motion.p>
 
       {/* the big line — awe voice */}
