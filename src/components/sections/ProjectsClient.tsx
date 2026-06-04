@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Repository } from "@/lib/github"
+import { Repository, LanguageStat } from "@/lib/github"
 
 const languageColors: Record<string, string> = {
   TypeScript: "var(--still-lake)",
@@ -14,7 +14,13 @@ const languageColors: Record<string, string> = {
   CSS: "var(--still-lake)",
 }
 
-export default function ProjectsClient({ repos }: { repos: Repository[] }) {
+export default function ProjectsClient({
+  repos,
+  languages,
+}: {
+  repos: Repository[]
+  languages: LanguageStat[]
+}) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
@@ -22,10 +28,7 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
     <section
       id="work"
       ref={ref}
-      style={{
-        padding: "8rem 2rem",
-        position: "relative",
-      }}
+      style={{ padding: "8rem 2rem", position: "relative" }}
     >
       <motion.p
         initial={{ opacity: 0 }}
@@ -55,7 +58,7 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
           color: "var(--journal-page)",
           lineHeight: 1.1,
           letterSpacing: "-0.02em",
-          marginBottom: "5rem",
+          marginBottom: "3rem",
           maxWidth: "600px",
         }}
       >
@@ -66,7 +69,50 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
         </span>
       </motion.h2>
 
-      {/* featured AankhaNet card */}
+      {languages.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 1, delay: 0.4 }}
+          style={{ marginBottom: "3rem" }}
+        >
+          <div style={{ display: "flex", gap: "0.5rem", marginBottom: "0.75rem", flexWrap: "wrap" }}>
+            {languages.map(lang => (
+              <div key={lang.language} style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                <div style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  background: lang.color,
+                  opacity: 0.7,
+                }} />
+                <span style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "9px",
+                  color: "var(--journal-page)",
+                  opacity: 0.35,
+                  letterSpacing: "0.08em",
+                }}>
+                  {lang.language} {lang.percentage}%
+                </span>
+              </div>
+            ))}
+          </div>
+          <div style={{ display: "flex", height: "2px", borderRadius: "1px", overflow: "hidden", gap: "1px" }}>
+            {languages.map(lang => (
+              <div
+                key={lang.language}
+                style={{
+                  width: lang.percentage + "%",
+                  background: lang.color,
+                  opacity: 0.5,
+                }}
+              />
+            ))}
+          </div>
+        </motion.div>
+      )}
+
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -149,7 +195,6 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
         </a>
       </motion.div>
 
-      {/* github repos grid */}
       <div
         style={{
           display: "grid",
@@ -167,11 +212,7 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 0.7,
-              delay: 0.4 + i * 0.08,
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
+            transition={{ duration: 0.7, delay: 0.4 + i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
             style={{
               background: "var(--shade-self)",
               padding: "2rem",
@@ -179,7 +220,6 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
               display: "flex",
               flexDirection: "column",
               gap: "1rem",
-              cursor: "pointer",
               transition: "background 0.3s ease",
             }}
             onMouseEnter={e => (e.currentTarget.style.background = "var(--near-black)")}
@@ -205,12 +245,7 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
             }}>
               {repo.description || "no description yet."}
             </span>
-            <div style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginTop: "auto",
-            }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto" }}>
               {repo.language && (
                 <span style={{
                   fontFamily: "var(--font-mono)",

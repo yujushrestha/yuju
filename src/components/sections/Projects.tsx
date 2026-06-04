@@ -1,8 +1,11 @@
-import { getRepositories } from "@/lib/github"
+import { getRepositories, getLanguageStats } from "@/lib/github"
 import ProjectsClient from "./ProjectsClient"
 
 export default async function Projects() {
-  const repos = await getRepositories()
+  const [repos, languages] = await Promise.all([
+    getRepositories(),
+    getLanguageStats(),
+  ])
 
-  return <ProjectsClient repos={repos} />
+  return <ProjectsClient repos={repos} languages={languages} />
 }

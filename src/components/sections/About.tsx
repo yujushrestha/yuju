@@ -16,7 +16,7 @@ export default function About() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: "8rem 2rem",
+        padding: "6rem 2rem",
         position: "relative",
         maxWidth: "900px",
       }}
@@ -167,6 +167,174 @@ export default function About() {
         somewhere by a lake, carving something into a tree.
       </motion.p>
 
+{/* currently */}
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={isInView ? { opacity: 1 } : {}}
+  transition={{ duration: 1, delay: 1.4 }}
+  style={{
+    marginTop: "5rem",
+    borderTop: "0.5px solid var(--near-black)",
+    paddingTop: "3rem",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "3rem",
+  }}
+>
+  {/* listening */}
+  <div>
+    <p style={{
+      fontFamily: "var(--font-mono)",
+      fontSize: "9px",
+      color: "var(--terminal-green)",
+      opacity: 0.4,
+      letterSpacing: "0.14em",
+      textTransform: "uppercase",
+      marginBottom: "1.5rem",
+    }}>
+      currently
+    </p>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
+      <div>
+        <p style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "9px",
+          color: "var(--journal-page)",
+          opacity: 0.3,
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          marginBottom: "0.4rem",
+        }}>
+          listening
+        </p>
+        <p style={{
+          fontFamily: "var(--font-awe)",
+          fontSize: "1rem",
+          fontStyle: "italic",
+          color: "var(--still-lake)",
+          opacity: 0.7,
+        }}>
+          Puddle of Mudd
+        </p>
+        <p style={{
+          fontFamily: "var(--font-awe)",
+          fontSize: "0.85rem",
+          fontStyle: "italic",
+          color: "var(--journal-page)",
+          opacity: 0.2,
+          marginTop: "0.2rem",
+        }}>
+          Come Clean
+        </p>
+      </div>
+
+      <div>
+        <p style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "9px",
+          color: "var(--journal-page)",
+          opacity: 0.3,
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          marginBottom: "0.4rem",
+        }}>
+          reading
+        </p>
+        <p style={{
+          fontFamily: "var(--font-awe)",
+          fontSize: "1rem",
+          fontStyle: "italic",
+          color: "var(--still-lake)",
+          opacity: 0.7,
+        }}>
+          Mirror Dance — Bujold
+        </p>
+      </div>
+
+      <div>
+        <p style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "9px",
+          color: "var(--journal-page)",
+          opacity: 0.3,
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          marginBottom: "0.4rem",
+        }}>
+          building
+        </p>
+        <p style={{
+          fontFamily: "var(--font-awe)",
+          fontSize: "1rem",
+          fontStyle: "italic",
+          color: "var(--still-lake)",
+          opacity: 0.7,
+        }}>
+          this site
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* shelf */}
+  <div>
+    <p style={{
+      fontFamily: "var(--font-mono)",
+      fontSize: "9px",
+      color: "var(--terminal-green)",
+      opacity: 0.4,
+      letterSpacing: "0.14em",
+      textTransform: "uppercase",
+      marginBottom: "1.5rem",
+    }}>
+      a small shelf
+    </p>
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+      {[
+        { type: "film", title: "Bleeder", year: "1999" },
+        { type: "film", title: "All About Lily Chou-Chou", year: "2001" },
+        { type: "book", title: "The Sailor Who Fell from Grace with the Sea", year: "Mishima" },
+        { type: "album", title: "Souvlaki", year: "Slowdive" },
+        { type: "album", title: "Come Clean", year: "Puddle of Mudd" },
+        { type: "hobby", title: "chess", year: "ongoing" },
+        { type: "hobby", title: "BMX", year: "always" },
+      ].map(item => (
+        <div key={item.title} style={{ display: "flex", gap: "1rem", alignItems: "baseline" }}>
+          <span style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "8px",
+            color: "var(--bleeder-red)",
+            opacity: 0.5,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            minWidth: "40px",
+          }}>
+            {item.type}
+          </span>
+          <span style={{
+            fontFamily: "var(--font-awe)",
+            fontSize: "0.95rem",
+            fontStyle: "italic",
+            color: "var(--still-lake)",
+            opacity: 0.65,
+          }}>
+            {item.title}
+          </span>
+          <span style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "8px",
+            color: "var(--journal-page)",
+            opacity: 0.2,
+            letterSpacing: "0.06em",
+            marginLeft: "auto",
+          }}>
+            {item.year}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</motion.div>
     </section>
   )
 }

@@ -54,7 +54,7 @@ export default function Resume() {
       id="resume"
       ref={ref}
       style={{
-        padding: "8rem 2rem",
+        padding: "6rem 2rem",
         position: "relative",
         maxWidth: "900px",
       }}

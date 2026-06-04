@@ -16,7 +16,7 @@ export default function Contact() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: "8rem 2rem",
+        padding: "6rem 2rem",
         position: "relative",
       }}
     >
