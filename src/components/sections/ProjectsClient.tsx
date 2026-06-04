@@ -27,7 +27,6 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
         position: "relative",
       }}
     >
-      {/* section marker */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
@@ -45,7 +44,6 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
         work
       </motion.p>
 
-      {/* heading */}
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -68,7 +66,90 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
         </span>
       </motion.h2>
 
-      {/* repository grid */}
+      {/* featured AankhaNet card */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        style={{ marginBottom: "1px" }}
+      >
+        <a href="/work/aankhanet" style={{ textDecoration: "none" }}>
+          <div
+            style={{
+              background: "var(--shade-self)",
+              padding: "2rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+              border: "1px solid var(--near-black)",
+              marginBottom: "1px",
+              transition: "background 0.3s ease",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = "var(--near-black)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "var(--shade-self)")}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+              <span style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "12px",
+                color: "var(--journal-page)",
+                opacity: 0.8,
+                letterSpacing: "0.06em",
+              }}>
+                AankhaNet
+              </span>
+              <span style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "9px",
+                color: "var(--bleeder-red)",
+                opacity: 0.6,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+              }}>
+                featured
+              </span>
+            </div>
+            <span style={{
+              fontFamily: "var(--font-awe)",
+              fontSize: "0.95rem",
+              fontStyle: "italic",
+              color: "var(--still-lake)",
+              lineHeight: 1.6,
+              opacity: 0.7,
+            }}>
+              AI-driven network threat detection and visualization platform with a mobile SOC companion for SMEs.
+            </span>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                {["Python", "TypeScript", "React Native", "Kafka"].map(tag => (
+                  <span key={tag} style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "9px",
+                    color: "var(--journal-page)",
+                    opacity: 0.3,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    border: "0.5px solid currentColor",
+                    padding: "0.2rem 0.5rem",
+                    borderRadius: "2px",
+                  }}>{tag}</span>
+                ))}
+              </div>
+              <span style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "9px",
+                color: "var(--terminal-green)",
+                opacity: 0.5,
+                letterSpacing: "0.1em",
+              }}>
+                read more
+              </span>
+            </div>
+          </div>
+        </a>
+      </motion.div>
+
+      {/* github repos grid */}
       <div
         style={{
           display: "grid",
@@ -101,75 +182,55 @@ export default function ProjectsClient({ repos }: { repos: Repository[] }) {
               cursor: "pointer",
               transition: "background 0.3s ease",
             }}
-            onMouseEnter={e =>
-              (e.currentTarget.style.background = "var(--near-black)")
-            }
-            onMouseLeave={e =>
-              (e.currentTarget.style.background = "var(--shade-self)")
-            }
+            onMouseEnter={e => (e.currentTarget.style.background = "var(--near-black)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "var(--shade-self)")}
           >
-            {/* repo name */}
-            <span
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "12px",
-                color: "var(--journal-page)",
-                opacity: 0.8,
-                letterSpacing: "0.06em",
-              }}
-            >
+            <span style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "12px",
+              color: "var(--journal-page)",
+              opacity: 0.8,
+              letterSpacing: "0.06em",
+            }}>
               {repo.name}
             </span>
-
-            {/* description */}
-            <span
-              style={{
-                fontFamily: "var(--font-awe)",
-                fontSize: "0.95rem",
-                fontStyle: "italic",
-                color: "var(--still-lake)",
-                lineHeight: 1.6,
-                opacity: 0.7,
-                flex: 1,
-              }}
-            >
+            <span style={{
+              fontFamily: "var(--font-awe)",
+              fontSize: "0.95rem",
+              fontStyle: "italic",
+              color: "var(--still-lake)",
+              lineHeight: 1.6,
+              opacity: 0.7,
+              flex: 1,
+            }}>
               {repo.description || "no description yet."}
             </span>
-
-            {/* footer */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginTop: "auto",
-              }}
-            >
+            <div style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginTop: "auto",
+            }}>
               {repo.language && (
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "9px",
-                    color:
-                      languageColors[repo.language] || "var(--journal-page)",
-                    opacity: 0.6,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
+                <span style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "9px",
+                  color: languageColors[repo.language] || "var(--journal-page)",
+                  opacity: 0.6,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                }}>
                   {repo.language}
                 </span>
               )}
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "9px",
-                  color: "var(--journal-page)",
-                  opacity: 0.2,
-                  letterSpacing: "0.08em",
-                }}
-              >
-                ★ {repo.stargazers_count}
+              <span style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "9px",
+                color: "var(--journal-page)",
+                opacity: 0.2,
+                letterSpacing: "0.08em",
+              }}>
+                {repo.stargazers_count}
               </span>
             </div>
           </motion.a>

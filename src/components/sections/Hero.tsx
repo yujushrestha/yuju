@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 export default function Hero() {
   return (
     <section
-    id="hero"
+      id="hero"
       style={{
         minHeight: "100vh",
         display: "flex",
@@ -59,7 +59,7 @@ export default function Hero() {
             marginBottom: "2rem",
           }}
         >
-          developer / creative
+          developer & creative technologist
         </motion.p>
 
         {/* name */}
@@ -85,25 +85,23 @@ export default function Hero() {
         </motion.h1>
 
         {/* the line */}
+        
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 1.0, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           style={{
-            fontFamily: "var(--font-awe)",
-            fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
-            fontWeight: 300,
-            fontStyle: "italic",
-            color: "var(--still-lake)",
-            maxWidth: "480px",
-            lineHeight: 1.6,
-            marginBottom: "4rem",
+          fontFamily: "var(--font-mono)",
+          fontSize: "11px",
+          color: "var(--journal-page)",
+          opacity: 0.35,
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          marginBottom: "1.5rem",
           }}
-        >
-          seeking something missing.
-          <br />
-          missing something left behind.
-        </motion.p>
+>
+  web & mobile development — network security — creative systems
+</motion.p>
 
         {/* nav links */}
         <motion.div
